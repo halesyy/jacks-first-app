@@ -6,11 +6,11 @@ import { GoogleSocialButton } from "react-native-social-buttons";
 export default function App() {
   return (
     <View style={styles.container}>
-      <Text>Jacks cool little iOS app!</Text>
+      <Text>Izzy's sick as iOS app!</Text>
       <View style={{marginTop: 15}}>
-        <Button title="Test" color="red" />
+        <Button title="Test" />
       </View>
-      <GoogleSocialButton />
+      <GoogleSocialButton onPress={() => console.log("hi")} />
       <StatusBar style="auto" />
     </View>
   );
