@@ -7,21 +7,25 @@ import tw from "tailwind-react-native-classnames"
 export default function App() {
   let [hide, setHidden] = useState(false)
 
+  let Content = props => {
+    return (
+      <View style={tw.style(`bg-red-100 my-2 w-full flex justify-center h-20 shadow-xl`, hide && "hidden")}>
+        <Text style={tw`text-center`}>
+          {props.text}
+        </Text>
+      </View>
+    )
+  }
+
   return (
     <View style={tw`flex-1 items-center justify-center bg-red-400`}>
-      <View style={tw.style(`bg-red-100 w-full flex justify-center h-20`, hide && "hidden")}>
-        <Text style={tw`text-center`}>
-          Izzy 😂
-        </Text>
-      </View>
-      <View style={tw`bg-red-400 flex justify-center h-20 my-4 shadow-xl w-full`}>
+      <Content text="Phoebe 🍑" />
+      <Content text="Izzy 😂" />
+      <View style={tw`bg-red-400 flex justify-center h-20 my-2 shadow-xl w-full`}>
         <Button title={hide?"Show":"Hide"} color="white" onPress={() => setHidden(!hide)} />
       </View>
-      <View style={tw.style(`bg-red-100 w-full flex justify-center h-20`, hide && "hidden")}>
-        <Text style={tw`text-center`}>
-          Jack 💖
-        </Text>
-      </View>
+      <Content text="Jack 💖" />
+      <Content text="Oliy 👌" />
       <StatusBar style="auto" />
     </View>
   );
