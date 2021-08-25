@@ -1,26 +1,28 @@
-import { StatusBar } from 'expo-status-bar';
-import React from 'react';
-import { StyleSheet, Text, View, Button } from 'react-native';
-import { GoogleSocialButton } from "react-native-social-buttons";
+import {StatusBar} from 'expo-status-bar';
+import React, {useState} from 'react';
+import {Text, View, Button} from 'react-native';
+// import {GoogleSocialButton} from "react-native-social-buttons";
+import tw from "tailwind-react-native-classnames"
 
 export default function App() {
+  let [hide, setHidden] = useState(false)
+
   return (
-    <View style={styles.container}>
-      <Text>Izzy's sick as iOS app!</Text>
-      <View style={{marginTop: 15}}>
-        <Button title="Test" />
+    <View style={tw`flex-1 items-center justify-center bg-red-400`}>
+      <View style={tw.style(`bg-red-100 w-full flex justify-center h-20`, hide && "hidden")}>
+        <Text style={tw`text-center`}>
+          Izzy 😂
+        </Text>
       </View>
-      <GoogleSocialButton onPress={() => console.log("hi")} />
+      <View style={tw`bg-red-400 flex justify-center h-20 my-4 shadow-xl w-full`}>
+        <Button title={hide?"Show":"Hide"} color="white" onPress={() => setHidden(!hide)} />
+      </View>
+      <View style={tw.style(`bg-red-100 w-full flex justify-center h-20`, hide && "hidden")}>
+        <Text style={tw`text-center`}>
+          Jack 💖
+        </Text>
+      </View>
       <StatusBar style="auto" />
     </View>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
