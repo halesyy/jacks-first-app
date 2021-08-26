@@ -1,32 +1,29 @@
 import {StatusBar} from 'expo-status-bar';
 import React, {useState} from 'react';
-import {Text, View, Button} from 'react-native';
-// import {GoogleSocialButton} from "react-native-social-buttons";
+import {Text, View, Button, SafeAreaView, Image} from 'react-native';
 import tw from "tailwind-react-native-classnames"
+
+// native base
 
 export default function App() {
   let [hide, setHidden] = useState(false)
 
-  let Content = props => {
-    return (
-      <View style={tw.style(`bg-red-100 my-2 w-full flex justify-center h-20 shadow-xl`, hide && "hidden")}>
-        <Text style={tw`text-center`}>
-          {props.text}
-        </Text>
-      </View>
-    )
-  }
-
   return (
-    <View style={tw`flex-1 items-center justify-center bg-red-400`}>
-      <Content text="Jay" />
-      <Content text="Jake" />
-      <View style={tw`bg-red-400 flex justify-center h-20 my-2 shadow-xl w-full`}>
-        <Button title={hide?"Show":"Hide"} color="white" onPress={() => setHidden(!hide)} />
-      </View>
-      <Content text="Jack" />
-      <Content text="Jek" />
-      <StatusBar style="auto" />
+    <View style={tw`flex-1 bg-indigo-200 justify-center`} className="">
+      <StatusBar style="auto" hidden={false} />
+      <SafeAreaView>
+        <View style={tw`p-4 py-14 bg-indigo-700 shadow-md border-t-2 border-b-2 border-indigo-900`}>
+          <View>
+            <Image
+              style={tw.style("shadow-xl m-auto mb-2 border-2 border-indigo-900 rounded-full bg-indigo-800", {marginTop: -220, width: 200, height: 200})}
+              source={require("./assets/undraw_nature_m5ll.png")}
+            />
+          </View>
+          <Text style={tw.style(`text-indigo-100 text-center`, {fontSize: 42})}>
+            Welcome...
+          </Text>
+        </View>
+      </SafeAreaView>
     </View>
   );
 }
