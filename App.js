@@ -19,13 +19,13 @@ export default function App() {
 
   return (
     <View style={tw`flex-1 items-center justify-center bg-red-400`}>
-      <Content text="Phoebe 🍑" />
-      <Content text="Izzy 😂" />
+      <Content text="Jay" />
+      <Content text="Jake" />
       <View style={tw`bg-red-400 flex justify-center h-20 my-2 shadow-xl w-full`}>
         <Button title={hide?"Show":"Hide"} color="white" onPress={() => setHidden(!hide)} />
       </View>
-      <Content text="Jack 💖" />
-      <Content text="Oliy 👌" />
+      <Content text="Jack" />
+      <Content text="Jek" />
       <StatusBar style="auto" />
     </View>
   );
